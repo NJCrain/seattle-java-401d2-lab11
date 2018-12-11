@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CapitalizeController {
     @GetMapping("/capitalize/{word}")
-    public String capitalize(@PathVariable String word) {
+    public static String capitalize(@PathVariable String word) {
         return word.toUpperCase();
     }
 }
