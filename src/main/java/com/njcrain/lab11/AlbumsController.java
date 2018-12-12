@@ -13,17 +13,14 @@ public class AlbumsController {
     @Autowired
     private AlbumRepository albumRepo;
 
+    //Gets all albums from the database to render on the page
     @RequestMapping(value="/albums", method= RequestMethod.GET)
     public String index(Model m) {
-//        Album[] albums = new Album[]{
-//                new Album("Trench", "Twenty One Pilots", 14, 2520, "https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/TOP_Trench_Album_Cover.jpg/220px-TOP_Trench_Album_Cover.jpg"),
-////                new Album("Led Zeppelin IV", "Led Zeppelin", 8, 2880, "https://upload.wikimedia.org/wikipedia/en/thumb/2/26/Led_Zeppelin_-_Led_Zeppelin_IV.jpg/220px-Led_Zeppelin_-_Led_Zeppelin_IV.jpg")
-//        };
-
         m.addAttribute("albums", albumRepo.findAll());
         return "albums";
     }
 
+    //Adds a new album to the database
     @RequestMapping(value="/albums", method= RequestMethod.POST)
     public RedirectView create(
             @RequestParam String title,

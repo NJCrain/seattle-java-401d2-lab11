@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ReverseController {
 
+    //Takes in a string from the request query, reverses the order of the words, and then returns that to render on the page
     @GetMapping("/reverse")
     public String reverse(@RequestParam("sentence") String sentence) {
         String[] sentenceArray = sentence.split(" ");
