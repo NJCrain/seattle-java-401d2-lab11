@@ -207,4 +207,7 @@ Temporary Items
 # IDE
 .vscode
 
+#application properties
+application.properties
+
 # End of https://www.gitignore.io/api/java,macos,android,androidstudio
