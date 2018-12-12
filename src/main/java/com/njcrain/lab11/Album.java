@@ -25,4 +25,6 @@ public class Album {
         this.length =  length;
         this.imageUrl =  imageUrl;
     }
+
+    public Album() {}
 }
