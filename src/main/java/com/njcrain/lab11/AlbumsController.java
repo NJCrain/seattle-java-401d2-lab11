@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+
 @Controller
 public class AlbumsController {
     @Autowired
@@ -39,6 +41,7 @@ public class AlbumsController {
     @RequestMapping(value="/albums/{id}", method=RequestMethod.GET)
     public String show(@PathVariable long id, Model m) {
         m.addAttribute("album", albumRepo.findById(id).get());
+        m.addAttribute("songs", albumRepo.findById(id).get().songs);
         return "album";
     }
 

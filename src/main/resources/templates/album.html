@@ -14,7 +14,9 @@
             <img th:src="${album.imageUrl}">
             <h2>Songs:</h2>
             <ul>
-
+                <li th:each="song : ${songs}">
+                    <span th:text="${song.title}"></span>
+                </li>
             </ul>
 
             <h3>Add a Song!</h3>

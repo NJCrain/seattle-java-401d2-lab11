@@ -1,8 +1,7 @@
 package com.njcrain.lab11;
 
-import com.sun.javafx.beans.IDProperty;
-
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +14,7 @@ public class Album {
     public int songCount;
     public int length;
     public String imageUrl;
-    @OneToMany
+    @OneToMany(mappedBy="album")
     public List<Song> songs;
 
     public Album(String title, String artist, int songCount, int length, String imageUrl) {
