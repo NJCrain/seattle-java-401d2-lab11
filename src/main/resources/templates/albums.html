@@ -16,8 +16,10 @@
                 Song Count: <p th:text="${album.songCount}"></p>
                 Length in seconds: <p th:text="${album.length}"></p>
                 <img th:src="${album.imageUrl}">
+                <a th:href="@{'/albums/' + ${album.id}}">View This Album</a>
             </div>
 
+            <h2>Add an Album!</h2>
             <form action="/albums" method="POST">
                 <label>Title <input name="title"></label>
                 <label>Artist <input name="artist"/></label>
