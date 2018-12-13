@@ -20,4 +20,8 @@ public class Song {
         this. length = length;
         this. trackNumber = trackNumber;
     }
+
+    public String toString() {
+        return this.title + ": Track number " + this.trackNumber + " on " + this.album.title + ". " + this.length + " seconds long";
+    }
 }
