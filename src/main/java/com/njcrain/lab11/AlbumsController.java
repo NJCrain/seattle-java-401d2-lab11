@@ -13,6 +13,8 @@ import org.springframework.web.servlet.view.RedirectView;
 public class AlbumsController {
     @Autowired
     private AlbumRepository albumRepo;
+    @Autowired
+    private SongRepository songRepo;
 
     //Gets all albums from the database to render on the page
     @RequestMapping(value="/albums", method= RequestMethod.GET)
@@ -38,5 +40,17 @@ public class AlbumsController {
     public String show(@PathVariable long id, Model m) {
         m.addAttribute("album", albumRepo.findById(id).get());
         return "album";
+    }
+
+    @RequestMapping(value="/albums/{albumId}", method=RequestMethod.POST)
+    public RedirectView addSong(@PathVariable long albumId,
+                                @RequestParam String title,
+                                @RequestParam int length,
+                                @RequestParam int trackNumber) {
+        Song newSong = new Song(title, length, trackNumber);
+        newSong.album = albumRepo.findById(albumId).get();
+        songRepo.save(newSong);
+
+        return new RedirectView("/albums/" + albumId);
     }
 }

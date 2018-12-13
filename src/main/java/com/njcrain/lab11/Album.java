@@ -2,10 +2,8 @@ package com.njcrain.lab11;
 
 import com.sun.javafx.beans.IDProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -17,6 +15,8 @@ public class Album {
     public int songCount;
     public int length;
     public String imageUrl;
+    @OneToMany
+    public List<Song> songs;
 
     public Album(String title, String artist, int songCount, int length, String imageUrl) {
         this.title =  title;
