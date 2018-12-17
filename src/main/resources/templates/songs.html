@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Songs</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <head th:replace="~{common :: head}">
     </head>
 
     <body>
@@ -11,9 +9,22 @@
         </header>
 
         <main>
-            <div th:each="song : ${songs}">
-                <p th:text="${song}"></p>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Song Title</th>
+                        <th>Album</th>
+                        <th>Song Length</th>
+                        <th>Track Number</th>
+                    </tr>
+                </thead>
+                <tr th:each="song : ${songs}">
+                    <td th:text="${song.title}"></td>
+                    <td th:text="${song.album.title}"></td>
+                    <td th:text="${song.length}"></td>
+                    <td th:text="${song.trackNumber}"></td>
+                </tr>
+            </table>
         </main>
     </body>
 </html>

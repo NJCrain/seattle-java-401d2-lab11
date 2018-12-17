@@ -22,3 +22,6 @@ After cloning down the repo, be sure to add a application.properties file within
 * 11:00AM - Song object and ability to add to database for a specific album
 * 11:30AM - View for an album displays its songs
 * 11:45AM - Page for just viewing songs
+
+# 12/ 14
+* 

@@ -22,6 +22,7 @@ public class AlbumsController {
     @RequestMapping(value="/albums", method= RequestMethod.GET)
     public String index(Model m) {
         m.addAttribute("albums", albumRepo.findAll());
+        m.addAttribute("title", "Albums");
         return "albums";
     }
 
@@ -40,8 +41,9 @@ public class AlbumsController {
 
     @RequestMapping(value="/albums/{id}", method=RequestMethod.GET)
     public String show(@PathVariable long id, Model m) {
-        m.addAttribute("album", albumRepo.findById(id).get());
-        m.addAttribute("songs", albumRepo.findById(id).get().songs);
+        Album toShow = albumRepo.findById(id).get();
+        m.addAttribute("album", toShow);
+        m.addAttribute("title", toShow.title);
         return "album";
     }
 

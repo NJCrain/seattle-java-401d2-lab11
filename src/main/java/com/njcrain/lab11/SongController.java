@@ -14,6 +14,7 @@ public class SongController {
     @RequestMapping(value = "/songs", method = RequestMethod.GET)
     public String index(Model m) {
         m.addAttribute("songs", songRepo.findAll());
+        m.addAttribute("title", "Songs");
         return "songs";
     }
 }
